@@ -51,9 +51,9 @@ if [[ "$OS" == "ubuntu" || "$OS" == "debian" ]]; then
         python3-pip \
         python3-dev \
         ripgrep \
-        universal-ctags \
-        nodejs \
-        npm
+        universal-ctags
+        # nodejs \
+        # npm
     echo ""
     
     # Install Python LSP Server
@@ -85,15 +85,15 @@ elif [[ "$OS" == "arch" || "$OS" == "manjaro" ]]; then
         python \
         python-pip \
         ripgrep \
-        universal-ctags \
-        nodejs \
-        npm
+        universal-ctags
+        # nodejs \
+        # npm
     echo ""
     
     # Install Python LSP Server
     echo "Installing Python Language Server..."
-    pip install python-lsp-server
-    pip install python-lsp-server[all]  # Install all optional plugins
+    sudo pacman -S python-lsp-server
+    sudo pacman -S python-lsp-server[all]  # Install all optional plugins
     echo ""
 
 else
