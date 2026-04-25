@@ -100,6 +100,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 
+" Terminal
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 " Themes
 Plug 'folke/tokyonight.nvim'
 Plug 'sainnhe/sonokai'
@@ -161,6 +164,31 @@ EOF
 " ============================================================================
 lua << EOF
 require('telescope').setup()
+EOF
+
+" ============================================================================
+" TERMINAL SETUP (toggleterm)
+" ============================================================================
+lua << EOF
+require("toggleterm").setup({
+  size = 15,                           " Terminal height
+  open_mapping = [[<C-\>]],           " Ctrl+\ to toggle terminal
+  hide_numbers = true,                 " Hide line numbers in terminal
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = 1,
+  start_in_insert = true,              " Start in insert mode
+  insert_mappings = true,
+  terminal_mappings = true,
+  persist_size = true,
+  direction = "horizontal",            " horizontal, vertical, window, float
+  close_on_exit = true,
+  float_opts = {
+    border = "curved",
+    width = 130,
+    height = 30,
+  }
+})
 EOF
 
 " ============================================================================
@@ -311,6 +339,21 @@ nnoremap <Leader>tree <cmd>NvimTreeToggle<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
+
+" ============================================================================
+" KEYBINDINGS - TERMINAL
+" ============================================================================
+" Toggle terminal with Ctrl+\ (default) or use custom keybindings below
+nnoremap <Leader>tt <cmd>ToggleTerm direction=horizontal<CR>
+nnoremap <Leader>tv <cmd>ToggleTerm direction=vertical size=40<CR>
+nnoremap <Leader>tf <cmd>ToggleTerm direction=float<CR>
+
+" When in terminal mode, exit with Escape
+tnoremap <esc> <C-\><C-n>
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-l> <C-\><C-n><C-w>l
 
 " ============================================================================
 " KEYBINDINGS - LSP
