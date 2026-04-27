@@ -315,7 +315,7 @@ nnoremap <Leader>to :tabo<cr>                " Close other tabs
 " ============================================================================
 "KEYBINDINGS - CTAGS NAVIGATION
 " ============================================================================
-nnoremap <Leader>tt :!ctags -R<cr>           " Generate tags
+nnoremap <Leader>tg :!ctags -R<cr>           " Generate tags
 nnoremap <C-]> <cmd>execute "tag " . expand("<cword>")<cr>  " Jump to definition
 " nnoremap <C-[> <cmd>pop<cr>                  " Jump back
 nnoremap <C-t> <cmd>pop<cr>                  " Jump back (standard vim key)
