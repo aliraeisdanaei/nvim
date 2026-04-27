@@ -51,9 +51,11 @@ let maplocalleader = ","  " Use comma for local leader (in specific filetypes)
 " ============================================================================
 " CURSOR SHAPE
 " ============================================================================
-let &t_SI = "\e[6 q"      " Insert mode: thin blinking line
+if !has('nvim')
+
 let &t_SR = "\e[4 q"      " Replace mode: blinking underscore
 let &t_EI = "\e[2 q"      " Normal mode: blinking block
+endif
 
 if has('nvim')
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -315,7 +317,8 @@ nnoremap <Leader>to :tabo<cr>                " Close other tabs
 " ============================================================================
 nnoremap <Leader>tt :!ctags -R<cr>           " Generate tags
 nnoremap <C-]> <cmd>execute "tag " . expand("<cword>")<cr>  " Jump to definition
-nnoremap <C-[> <cmd>pop<cr>                  " Jump back
+" nnoremap <C-[> <cmd>pop<cr>                  " Jump back
+nnoremap <C-t> <cmd>pop<cr>                  " Jump back (standard vim key)
 nnoremap <Leader>ts :tag<Space>              " Search for tag
 nnoremap <Leader>tl :tags<cr>                " List tag stack
 nnoremap <Leader>tn :tnext<cr>               " Next tag match
