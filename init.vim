@@ -171,17 +171,17 @@ EOF
 " ============================================================================
 lua << EOF
 require("toggleterm").setup({
-  size = 15,                           " Terminal height
-  open_mapping = [[<C-\>]],           " Ctrl+\ to toggle terminal
-  hide_numbers = true,                 " Hide line numbers in terminal
+  size = 15,                           -- Terminal height
+  open_mapping = [[<C-\>]],           -- Ctrl+\ to toggle terminal
+  hide_numbers = true,                 -- Hide line numbers in terminal
   shade_filetypes = {},
   shade_terminals = true,
   shading_factor = 1,
-  start_in_insert = true,              " Start in insert mode
+  start_in_insert = true,              -- Start in insert mode
   insert_mappings = true,
   terminal_mappings = true,
   persist_size = true,
-  direction = "horizontal",            " horizontal, vertical, window, float
+  direction = "horizontal",            -- horizontal, vertical, window, float
   close_on_exit = true,
   float_opts = {
     border = "curved",
@@ -306,7 +306,7 @@ nnoremap <Leader>x :wq<cr>                   " Save and quit
 nnoremap <Leader>ee :e<Space>                " Edit file
 nnoremap <Leader>vs :vsplit<cr>              " Vertical split
 nnoremap <Leader>hs :split<cr>               " Horizontal split
-nnoremap <Leader>tn :tabnew<cr>              " New tab
+nnoremap <Leader>nt :tabnew<cr>              " New tab
 nnoremap <Leader>tc :tabclose<cr>            " Close tab
 nnoremap <Leader>to :tabo<cr>                " Close other tabs
 
