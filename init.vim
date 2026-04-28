@@ -310,7 +310,7 @@ nnoremap <Leader>rf :grep<Space>--type<Space>
 " ============================================================================
 " KEYBINDINGS - LINE NUMBERS TOGGLE
 " ============================================================================
-nnoremap <Leader>ln :set relativenumber! set number<cr>
+nnoremap <Leader>ln :set relativenumber!<cr>
 nnoremap <Leader>rn :set relativenumber<cr>
 
 " ============================================================================
