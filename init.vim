@@ -5,6 +5,20 @@ set number
 set relativenumber
 syntax on
 set clipboard=unnamedplus
+" Enable OSC52 clipboard provider (built-in Neovim feature)
+lua << EOF
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+EOF
 
 set autoindent
 set tabstop=4
@@ -51,15 +65,15 @@ let maplocalleader = ","  " Use comma for local leader (in specific filetypes)
 " ============================================================================
 " CURSOR SHAPE
 " ============================================================================
-if !has('nvim')
-
-let &t_SR = "\e[4 q"      " Replace mode: blinking underscore
-let &t_EI = "\e[2 q"      " Normal mode: blinking block
-endif
-
-if has('nvim')
-  set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-endif
+" if !has('nvim')
+" 
+" let &t_SR = "\e[4 q"      " Replace mode: blinking underscore
+" let &t_EI = "\e[2 q"      " Normal mode: blinking block
+" endif
+" 
+" if has('nvim')
+"   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+" endif
 
 " ============================================================================
 " RIPGREP CONFIGURATION
@@ -377,7 +391,7 @@ nnoremap ]d <cmd>lua vim.diagnostic.goto_next()<CR>
 " ============================================================================
 " KEYBINDINGS - RELOAD CONFIG
 " ============================================================================
-nnoremap <Leader>r <cmd>source ~/.config/nvim/init.vim<CR>
+" nnoremap <Leader>r <cmd>source ~/.config/nvim/init.vim<CR>
 
 " ============================================================================
 " FOLDING KEYBINDINGS (Reference)
