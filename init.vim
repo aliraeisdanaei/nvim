@@ -5,20 +5,6 @@ set number
 set relativenumber
 syntax on
 set clipboard=unnamedplus
-" Enable OSC52 clipboard provider (built-in Neovim feature)
-lua << EOF
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-  },
-}
-EOF
 
 set autoindent
 set tabstop=4
